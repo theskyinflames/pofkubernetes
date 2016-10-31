@@ -5,8 +5,8 @@ echo "Doing common initialization ...."
 . /vagrant_data/initialize.sh
 
 # Starting the master
-echo "Starting the master ..."
-kubeadm init
+echo "Starting the master"
+kubeadm init 
 
 # Installing network pod
 echo "Installing the network pod ..."
@@ -20,8 +20,10 @@ do
 	if [[ $checkingnet == *"Running"* ]]
 	then
 	  echo "Network pod is running";
-	  exit 0;
+	  break;
 	fi
    sleep 5
 done
+
+cat /vagrant_data/master.log|grep token|awk '{print $5}'| sed 's/"//g'>/vagrant_data/token
 
