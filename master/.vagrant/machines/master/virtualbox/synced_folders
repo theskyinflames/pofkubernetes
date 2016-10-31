@@ -1,1 +1,0 @@
-{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/home/jaumearus/development/kubernetes/master","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"},"/vagrant_data":{"type":"rsync","guestpath":"/vagrant_data","hostpath":"/home/jaumearus/development/kubernetes","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
