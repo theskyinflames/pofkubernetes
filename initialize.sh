@@ -24,5 +24,13 @@ testtest
 testtest
 EOF
 
+# Enable SSH server
+echo "Enabling SSH daemon"
+#service sshd start
+#chkconfig sshd on
+sudo systemctl enable sshd.service
+echo "SSHD enabled"
+
 # Setting keyboard layout
+echo "Setting keymap laoyut to es"
 localectl set-keymap es
