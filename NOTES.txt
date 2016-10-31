@@ -1,0 +1,2 @@
+Vagrant file : https://www.sitepoint.com/vagrantfile-explained-setting-provisioning-shell/
+Kubernetes: http://kubernetes.io/docs/getting-started-guides/kubeadm/

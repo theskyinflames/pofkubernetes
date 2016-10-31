@@ -1,1 +1,3 @@
 # A POF of Kubernetes/Vagrant on progress ....
+
+Implementation of the getting started guide published at [kubeadm](http://kubernetes.io/docs/getting-started-guides/kubeadm/)
