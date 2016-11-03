@@ -2,15 +2,15 @@
 
 # Starting the master
 cd ./master
-cat vagrant up --provider=virtualbox > ../master.log
+vagrant up --provider=virtualbox > ../master.log 2>&1
 
 # Generate token variable
 cd ..
-export KUBERNETES_MASTER_TOKEN=$(master.log|grep "generated token"|awk '{print $6}'|sed 's/"//g')
+export KUBERNETES_MASTER_TOKEN=$(cat ./master.log|grep "generated token"|awk '{print $6}'|sed 's/"//g')
+export KUBERNETES_MASTER_IP=$(cat ./master_ip)
+echo "KUBERNETES_MASTER_TOKEN ${KUBERNETES_MASTER_TOKEN}"
+echo "KUBERNETES_MASTER_IP ${KUBERNETES_MASTER_IP}"
 
 # Add the node 1
 cd ./node1
-vagrant up --provider=virtualbox
-
-
-
+vagrant up --provider=virtualbox > ../node1.log 2>&1

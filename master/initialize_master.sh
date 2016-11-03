@@ -6,7 +6,8 @@ echo "Doing common initialization ...."
 
 # Starting the master
 echo "Starting the master"
-kubeadm init 
+export myip=$(ip a s|sed -ne '/127.0.0.1/!{s/^[ \t]*inet[ \t]*\([0-9.]\+\)\/.*$/\1/p}')>/vagrant_data/master_ip
+kubeadm init --api-advertise-addresses=$myip
 
 # Installing network pod
 echo "Installing the network pod ..."
@@ -25,5 +26,6 @@ do
    sleep 5
 done
 
+# Save the master token
+echo "Saving the token string..."
 cat /vagrant_data/master.log|grep token|awk '{print $5}'| sed 's/"//g'>/vagrant_data/token
-
