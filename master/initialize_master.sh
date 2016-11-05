@@ -1,7 +1,7 @@
 #!/bin/sh
 
-export myip=$(ip a s|sed -ne '/127.0.0.1/!{s/^[ \t]*inet[ \t]*\([0-9.]\+\)\/.*$/\1/p}'|sed ':a;N;$!ba;s/\n/ /g')
-echo "Master ip: ${myip}"
+#export myip=$(ip a s|sed -ne '/127.0.0.1/!{s/^[ \t]*inet[ \t]*\([0-9.]\+\)\/.*$/\1/p}'|sed ':a;N;$!ba;s/\n/ /g'|sed -e 's/ /,/g')
+echo "Master ip: ${KUBERNETES_MASTER_IP}"
 
 # Common initialization
 echo "Doing common initialization ...."
@@ -9,7 +9,7 @@ echo "Doing common initialization ...."
 
 # Starting the master
 echo "Starting the master"
-kubeadm init --api-advertise-addresses=$myip
+kubeadm init --api-advertise-addresses=$KUBERNETES_MASTER_IP
 
 # Installing network pod
 echo "Installing the network pod ..."

@@ -26,8 +26,9 @@ EOF
 
 # Enable SSH server
 echo "Enabling SSH daemon"
-service sshd start
-chk sshd on
+#service sshd start
+#chkconfig sshd on
+sudo systemctl enable sshd.service
 echo "SSHD enabled"
 
 # Setting keyboard layout
