@@ -26,19 +26,19 @@ sed -i -E "s/KUBERNETES_MASTER_TOKEN=(.*)$/KUBERNETES_MASTER_TOKEN=$KUBERNETES_M
 echo "Adding node 1 ..."
 cd ./node1
 vagrant up --provider=virtualbox > ../node1.log 2>&1
-echo "Node 1 added"
 cd ..
+echo "Node 1 added"
 
 # Adding the node 2
 echo "Adding node 2 ..."
 cd ./node2
 vagrant up --provider=virtualbox > ../node2.log 2>&1
-echo "Node 2 added"
 cd ..
+echo "Node 2 added"
 
-# Adding the node 3
+# Add the node 3
 echo "Adding node 3 ..."
 cd ./node3
 vagrant up --provider=virtualbox > ../node3.log 2>&1
-echo "Node 3 added"
 cd ..
+echo "Node 3 added"
