@@ -5,3 +5,8 @@ Implementation of the getting started guide published at [kubeadm](http://kubern
 ## Dependencies
 * Vagrant version >= 1.8.1
 * Virtualbox version >= 5.1.8
+## Checking for Etcd is running
+Log into master as root and do:
+```sh
+curl -fs -X PUT "http://${host}:${port}/v2/keys/_test"
+```

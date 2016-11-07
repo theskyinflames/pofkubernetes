@@ -1,10 +1,13 @@
 #!/bin/bash
 
+export KUBERNETES_MASTER_IP=192.168.33.10
+echo "KUBERNETES_MASTER_IP ${KUBERNETES_MASTER_IP}"
+
+export HOST_NETWORK_INTERFACE=enp3s0
+
 # Starting the master
 echo "Starting the master ..."
 cd ./master
-export KUBERNETES_MASTER_IP=192.168.33.10
-echo "KUBERNETES_MASTER_IP ${KUBERNETES_MASTER_IP}"
 vagrant up --provider=virtualbox > ../master.log 2>&1
 echo "Master started"
 cd ..
